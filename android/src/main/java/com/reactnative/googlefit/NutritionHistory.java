@@ -18,7 +18,7 @@ import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
 
 import java.text.DateFormat;
-import java.util.Arrays;
+import java.util.Arrays; 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

@@ -594,7 +594,7 @@ class RNGoogleFit {
     const startDate = Date.parse(options.startDate)
     const endDate = Date.parse(options.endDate)
     googleFit.getBloodGlucoseSamples(
-      startDate,
+      startDate, 
       endDate,
       (msg) => {
         callback(msg, false)
