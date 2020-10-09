@@ -372,6 +372,20 @@ public class GoogleFitModule extends ReactContextBaseJavaModule implements Lifec
     }
 
     @ReactMethod
+    public void getBloodGlucoseSamples(double startDate,
+                                 double endDate,
+                                 Callback errorCallback,
+                                 Callback successCallback) {
+        try {
+            HeartrateHistory heartrateHistory = mGoogleFitManager.getHeartrateHistory();
+            heartrateHistory.setDataType(HealthDataTypes.TYPE_BLOOD_GLUCOSE);
+            successCallback.invoke(heartrateHistory.getHistory((long)startDate, (long)endDate));
+        } catch (IllegalViewOperationException e) {
+            errorCallback.invoke(e.getMessage());
+        }
+    }
+
+    @ReactMethod
     public void getHeartRateSamples(double startDate,
                                     double endDate,
                                     int bucketInterval,

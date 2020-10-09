@@ -118,6 +118,8 @@ declare module 'react-native-google-fit' {
       callback: (isError: boolean, result: DateValueResponse[]) => void
     ) => void
 
+    getBloodGlucoseSamples: (options: any, callback: ((isError: boolean, result: any) => void)) => void;
+
     saveWeight: (
       options: WeightData,
       callback: (isError: boolean, result: true) => void

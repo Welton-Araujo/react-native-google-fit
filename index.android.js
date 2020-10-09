@@ -590,6 +590,26 @@ class RNGoogleFit {
     )
   }
 
+  getBloodGlucoseSamples = (options, callback) => {
+    const startDate = Date.parse(options.startDate)
+    const endDate = Date.parse(options.endDate)
+    googleFit.getBloodGlucoseSamples(
+      startDate,
+      endDate,
+      (msg) => {
+        callback(msg, false)
+      },
+      (res) => {
+        if (res.length > 0) {
+          console.log('res com acerto glicemia: ',res);
+          callback(false, prepareResponse(res, 'value'))
+        } else {
+          console.log('res com erro glicemia: ',res);
+          callback('There is no any heart rate data', false)
+        }
+      })
+  }
+
   getHydrationSamples = (startDate, endDate, callback) => {
     startDate = !isNil(startDate)
       ? Date.parse(startDate)
